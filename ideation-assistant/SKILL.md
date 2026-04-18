@@ -151,6 +151,12 @@ Who exactly, with usage context.
 ### Comparable / Inspiration [Framework: Comparables]
 What exists that is similar and how this concept differs.
 
+### Visual Mockups
+1-2 ASCII/Unicode CLI mockups that illustrate the core UX of the idea.
+These should feel like real terminal output: use box-drawing characters,
+progress bars, emojis, and alignment to make the concept tangible.
+Example: a dashboard view, a one-liner status bar, a CLI wizard flow.
+
 ### Key User Flows
 The 2-3 main user journeys, one sentence each.
 Example: "User creates a trip → invites friends → group votes on activities."
@@ -164,6 +170,11 @@ What is known, what is assumed, technical/business boundaries.
 ### Open Questions
 What still needs to be decided before specifying.
 ```
+
+Once the user validates the one-pager, **save it as a markdown file in the
+current working directory** using the naming convention
+`<concept-name-slug>-one-pager.md`. Ask the user to confirm the filename
+before creating it.
 
 End with:
 > *Happy with this one-pager? Want to refine any section, or challenge it with
