@@ -1,0 +1,35 @@
+appId: com.videobgremover.app
+productName: Video Background Remover
+directories:
+  buildResources: resources
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.*'
+  - '!{tsconfig.json,tsconfig.*.json}'
+  - '!{.eslintrc,.prettierrc}'
+  - '!{README.md,LICENSE}'
+asarUnpack:
+  - 'node_modules/**'
+  - 'out/main/worker.js'
+mac:
+  identity: null
+  target:
+    - target: dir
+      arch:
+        - arm64
+    - target: dir
+      arch:
+        - x64
+  artifactName: '${name}-${version}-mac-${arch}.${ext}'
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: '${name}-${version}-win-${arch}.${ext}'
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
