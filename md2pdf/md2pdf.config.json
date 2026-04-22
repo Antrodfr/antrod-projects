@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_comment": "md2pdf configuration — copy this file to your project root as md2pdf.config.json",
+
+  "backend": "puppeteer",
+
+  "puppeteer": {
+    "format": "A4",
+    "margin": {
+      "top": "25mm",
+      "right": "20mm",
+      "bottom": "25mm",
+      "left": "20mm"
+    },
+    "printBackground": true,
+    "displayHeaderFooter": true,
+    "headerTemplate": "<span></span>",
+    "footerTemplate": "<div style='font-size:9px; color:#6b7280; width:100%; text-align:center; padding:0 20mm;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>"
+  },
+
+  "latex": {
+    "engine": "pdflatex",
+    "documentClass": "article",
+    "fontSize": "11pt",
+    "packages": ["geometry", "hyperref", "graphicx", "enumitem", "fancyhdr"]
+  },
+
+  "theme": null,
+
+  "output": {
+    "directory": ".",
+    "filename": null
+  },
+
+  "cache": {
+    "enabled": true,
+    "directory": ".md2pdf/cache"
+  },
+
+  "sections": {
+    "splitOn": ["h1", "h2"],
+    "pageBreakBefore": ["h1"]
+  }
+}
