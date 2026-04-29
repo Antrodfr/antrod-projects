@@ -1,0 +1,298 @@
+{
+  "concepts": [
+    {
+      "id": "zero-trust",
+      "name": "Zero Trust",
+      "category": "Framework",
+      "source_excerpt": "Zero Trust is a security framework that requires all users to be authenticated, authorized, and continuously validated.",
+      "explanations": {
+        "beginner": "Zero Trust is like a building where every single door is locked, and you need to show your ID at each one — even if you're already inside. Nobody gets a free pass just because they're 'on the inside'. Every time you want to go somewhere, you have to prove who you are.",
+        "intermediate": "Zero Trust is a security model that eliminates implicit trust from network architecture. Instead of assuming users inside a corporate network are safe, every access request is fully authenticated, authorized, and encrypted. It addresses the limitations of perimeter-based security in an era of cloud computing and remote work.",
+        "expert": "Zero Trust Architecture (ZTA) implements a 'never trust, always verify' paradigm, replacing perimeter-centric security with identity-centric micro-perimeters. It enforces least-privilege access via continuous authentication, device posture assessment, and contextual policy evaluation. Key technical components include Software-Defined Perimeters (SDP), microsegmentation, SASE (Secure Access Service Edge), and real-time behavioral analytics. NIST SP 800-207 provides the reference architecture."
+      },
+      "quiz_questions": [
+        {
+          "question": "What is the fundamental assumption of Zero Trust security?",
+          "choices": [
+            "Everything inside the network is trusted",
+            "No entity should be automatically trusted",
+            "Only external threats need to be verified",
+            "Firewalls are sufficient for security"
+          ],
+          "correct_index": 1,
+          "explanation": "Zero Trust's core principle is 'never trust, always verify' — no entity is automatically trusted regardless of its location."
+        },
+        {
+          "question": "Why was Zero Trust developed?",
+          "choices": [
+            "To reduce IT costs",
+            "To make networks faster",
+            "Because the traditional network perimeter has dissolved with cloud and remote work",
+            "To eliminate the need for passwords"
+          ],
+          "correct_index": 2,
+          "explanation": "Zero Trust emerged because the traditional 'castle and moat' perimeter model became inadequate with cloud computing, remote work, and mobile devices."
+        }
+      ]
+    },
+    {
+      "id": "microsegmentation",
+      "name": "Microsegmentation",
+      "category": "Network Security",
+      "source_excerpt": "Zero Trust divides the network into small, isolated segments. Each segment has its own access controls.",
+      "explanations": {
+        "beginner": "Imagine a submarine with lots of separate rooms, each with its own waterproof door. If water gets into one room, the rest of the submarine stays dry. Microsegmentation does the same thing with computer networks — it divides them into small sections so a problem in one area can't spread everywhere.",
+        "intermediate": "Microsegmentation is a network security technique that divides the network into small, isolated zones with individual access controls. Unlike traditional flat networks where a breach gives access to everything, microsegmentation contains threats within a single segment and prevents lateral movement by attackers.",
+        "expert": "Microsegmentation implements granular security policies at the workload level, typically using software-defined networking (SDN) or host-based firewalls. It enforces east-west traffic controls within data centers and cloud environments, applying Layer 7 (application-layer) policies. Implementation approaches include agent-based (hypervisor-level), network-based (VXLAN/NSX), and cloud-native security groups. It is essential for achieving least-privilege network access in Zero Trust architectures."
+      },
+      "quiz_questions": [
+        {
+          "question": "What does microsegmentation prevent?",
+          "choices": [
+            "Users from logging in",
+            "Lateral movement by attackers across the network",
+            "Software updates",
+            "Cloud computing"
+          ],
+          "correct_index": 1,
+          "explanation": "Microsegmentation creates isolated network segments that prevent attackers from moving laterally if they compromise one area."
+        },
+        {
+          "question": "How does microsegmentation differ from traditional network security?",
+          "choices": [
+            "It uses stronger passwords",
+            "It creates many small security zones instead of one large perimeter",
+            "It only protects cloud resources",
+            "It eliminates the need for firewalls"
+          ],
+          "correct_index": 1,
+          "explanation": "Traditional security uses a single perimeter, while microsegmentation creates many isolated zones, each with its own security controls."
+        }
+      ]
+    },
+    {
+      "id": "least-privilege",
+      "name": "Least Privilege Access",
+      "category": "Access Control",
+      "source_excerpt": "Users and systems should only have the minimum level of access necessary to perform their tasks.",
+      "explanations": {
+        "beginner": "Least privilege is like giving a hotel guest a key card that only opens their room — not every room in the hotel. People should only be able to access the specific things they need for their job, and nothing more.",
+        "intermediate": "The Principle of Least Privilege (PoLP) means granting users, applications, and systems only the minimum permissions needed to perform their specific functions. This limits potential damage from compromised accounts or insider threats by reducing the 'blast radius' of any security incident.",
+        "expert": "Least Privilege Access is enforced through Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), or Policy-Based Access Control (PBAC) systems. Implementation includes Just-in-Time (JIT) access provisioning, Privileged Access Management (PAM), and regular access certification reviews. In Zero Trust, least privilege is dynamically enforced using real-time risk scoring that considers user identity, device posture, resource sensitivity, and environmental context."
+      },
+      "quiz_questions": [
+        {
+          "question": "What does the Principle of Least Privilege limit?",
+          "choices": [
+            "The number of employees in a company",
+            "The blast radius of a potential security breach",
+            "The speed of the network",
+            "The number of applications that can be installed"
+          ],
+          "correct_index": 1,
+          "explanation": "By giving users only the access they need, least privilege limits how much damage can occur if an account is compromised."
+        },
+        {
+          "question": "Which is an example of least privilege?",
+          "choices": [
+            "All employees have admin access to all systems",
+            "A marketing employee only has access to marketing tools and data",
+            "Everyone shares the same password",
+            "No one has any access to systems"
+          ],
+          "correct_index": 1,
+          "explanation": "Least privilege means each person has access only to the resources they need for their specific role."
+        }
+      ]
+    },
+    {
+      "id": "mfa",
+      "name": "Multi-Factor Authentication",
+      "category": "Authentication",
+      "source_excerpt": "MFA requires users to provide two or more verification factors to gain access.",
+      "explanations": {
+        "beginner": "Multi-Factor Authentication (MFA) is like needing both a key and a secret code to open a door. Just knowing the password isn't enough — you also need something else, like a code sent to your phone. This makes it much harder for bad guys to break in, even if they steal your password.",
+        "intermediate": "MFA strengthens authentication by requiring multiple independent verification factors: knowledge (password/PIN), possession (phone/security key), and inherence (fingerprint/face). Even if one factor is compromised, attackers still can't gain access without the others, dramatically reducing the success rate of credential-based attacks.",
+        "expert": "MFA implementations range from SMS-based OTP (least secure, vulnerable to SIM swapping) to FIDO2/WebAuthn hardware security keys (most secure, phishing-resistant). Modern Zero Trust deployments favor passwordless MFA using biometrics combined with device certificates. Adaptive MFA dynamically adjusts authentication requirements based on risk signals — device trust level, network reputation, behavioral biometrics, and impossible travel detection."
+      },
+      "quiz_questions": [
+        {
+          "question": "Which of these is NOT a typical MFA factor?",
+          "choices": [
+            "Something you know (password)",
+            "Something you have (phone)",
+            "Something you are (fingerprint)",
+            "Something you want (wish)"
+          ],
+          "correct_index": 3,
+          "explanation": "The three standard MFA factors are knowledge (know), possession (have), and inherence (are). 'Something you want' is not an authentication factor."
+        },
+        {
+          "question": "Why is MFA important in Zero Trust?",
+          "choices": [
+            "It makes logins faster",
+            "It ensures identity verification is stronger than just a password",
+            "It replaces encryption",
+            "It eliminates the need for network monitoring"
+          ],
+          "correct_index": 1,
+          "explanation": "MFA is a cornerstone of Zero Trust because it provides stronger identity verification, which is essential when no entity is automatically trusted."
+        }
+      ]
+    },
+    {
+      "id": "identity-verification",
+      "name": "Identity Verification",
+      "category": "Authentication",
+      "source_excerpt": "Continuous identity verification goes beyond initial login, constantly assessing user behavior and context.",
+      "explanations": {
+        "beginner": "Identity verification is like a security guard who doesn't just check your badge at the door, but keeps watching to make sure you're behaving normally the whole time you're in the building. If something seems off — like you going to a room you never visit — they check on you again.",
+        "intermediate": "In Zero Trust, identity verification is continuous rather than a one-time check at login. Systems monitor user behavior, device health, location, and access patterns throughout a session. If anomalies are detected — like unusual access times or locations — additional verification is required or access is revoked.",
+        "expert": "Continuous identity verification leverages User and Entity Behavior Analytics (UEBA) to establish behavioral baselines and detect deviations in real-time. It integrates with Identity Providers (IdPs), MDM/UEM platforms for device posture assessment, and SIEM/SOAR systems for correlated threat detection. Implementation uses risk-based authentication engines that compute dynamic trust scores from multiple signals including IP reputation, geolocation velocity, session patterns, and resource sensitivity."
+      },
+      "quiz_questions": [
+        {
+          "question": "How does Zero Trust identity verification differ from traditional login?",
+          "choices": [
+            "It uses longer passwords",
+            "It's a one-time check at the door",
+            "It continuously monitors and verifies throughout the session",
+            "It doesn't require any authentication"
+          ],
+          "correct_index": 2,
+          "explanation": "Unlike traditional one-time login checks, Zero Trust continuously verifies identity by monitoring behavior, context, and device health throughout the session."
+        },
+        {
+          "question": "What might trigger re-verification in a Zero Trust system?",
+          "choices": [
+            "Successfully completing a task",
+            "Logging in at a normal time from a normal location",
+            "Accessing resources from an unusual location or at an unusual time",
+            "Having a strong password"
+          ],
+          "correct_index": 2,
+          "explanation": "Anomalous behavior — like unusual locations, times, or access patterns — triggers additional verification in Zero Trust systems."
+        }
+      ]
+    },
+    {
+      "id": "network-perimeter",
+      "name": "Network Perimeter",
+      "category": "Network Security",
+      "source_excerpt": "Traditional security relied on a strong network perimeter — a 'castle and moat' approach.",
+      "explanations": {
+        "beginner": "A network perimeter is like a castle wall with a moat around it. The idea used to be: keep the bad guys outside the wall, and everyone inside is safe. But nowadays, people work from home, use phones, and store data in the cloud — so the 'wall' doesn't really exist anymore.",
+        "intermediate": "The network perimeter was the traditional boundary between an organization's internal trusted network and the external untrusted internet, typically enforced by firewalls and VPNs. With cloud adoption, remote work, and BYOD policies, this boundary has become porous, making perimeter-only security insufficient.",
+        "expert": "The dissolution of the network perimeter drove the Zero Trust paradigm shift. Traditional perimeter defense (firewalls, DMZs, VPN concentrators) assumed a clear inside/outside boundary. Cloud migration (IaaS/SaaS), SD-WAN, remote workforce, IoT proliferation, and API-driven architectures have eliminated this boundary. Modern security architectures replace perimeter trust with identity-centric trust evaluation, implementing security controls at the application and data layer rather than the network layer."
+      },
+      "quiz_questions": [
+        {
+          "question": "What is the 'castle and moat' approach to security?",
+          "choices": [
+            "Using physical castles for data centers",
+            "Protecting the network perimeter and trusting everything inside",
+            "Building multiple layers of encryption",
+            "Using moats of water around server rooms"
+          ],
+          "correct_index": 1,
+          "explanation": "The 'castle and moat' metaphor describes the traditional approach of defending the network perimeter (the moat) and trusting everything inside (the castle)."
+        },
+        {
+          "question": "Why has the traditional network perimeter become insufficient?",
+          "choices": [
+            "Firewalls stopped working",
+            "Cloud computing, remote work, and mobile devices dissolved the clear boundary",
+            "Networks became too fast",
+            "There are fewer cyber threats now"
+          ],
+          "correct_index": 1,
+          "explanation": "Cloud computing, remote work, and mobile devices mean resources and users are no longer contained within a clear network boundary."
+        }
+      ]
+    },
+    {
+      "id": "continuous-monitoring",
+      "name": "Continuous Monitoring",
+      "category": "Operations",
+      "source_excerpt": "Zero Trust requires real-time monitoring of all network activity, user behavior, and system health.",
+      "explanations": {
+        "beginner": "Continuous monitoring is like having security cameras that watch everything all the time, not just when something goes wrong. If something unusual happens — like someone trying to get into a room they shouldn't — the system spots it right away and alerts the security team.",
+        "intermediate": "Continuous monitoring in Zero Trust means real-time surveillance of network traffic, user behavior, and system health using automated tools and analytics. It enables rapid detection of anomalies, potential breaches, and insider threats, moving from reactive incident response to proactive threat detection.",
+        "expert": "Continuous monitoring implements real-time telemetry collection across endpoints, network flows, identity systems, and cloud workloads. It leverages SIEM platforms with UEBA capabilities, NDR (Network Detection and Response), and EDR (Endpoint Detection and Response) for correlated threat detection. Advanced implementations use ML-based anomaly detection, automated SOAR playbooks for response orchestration, and integration with threat intelligence feeds for IOC matching."
+      },
+      "quiz_questions": [
+        {
+          "question": "What is the primary goal of continuous monitoring in Zero Trust?",
+          "choices": [
+            "To slow down the network",
+            "To detect anomalies and threats in real-time",
+            "To monitor employee productivity",
+            "To replace firewalls"
+          ],
+          "correct_index": 1,
+          "explanation": "Continuous monitoring aims to detect anomalies, potential breaches, and threats in real-time, enabling rapid response to security incidents."
+        },
+        {
+          "question": "What technologies support continuous monitoring?",
+          "choices": [
+            "Only firewalls",
+            "SIEM, UEBA, EDR, and advanced analytics",
+            "Just antivirus software",
+            "Physical security cameras only"
+          ],
+          "correct_index": 1,
+          "explanation": "Continuous monitoring relies on SIEM (Security Information and Event Management), UEBA (User and Entity Behavior Analytics), EDR (Endpoint Detection and Response), and AI-powered analytics."
+        }
+      ]
+    },
+    {
+      "id": "encryption",
+      "name": "Encryption",
+      "category": "Data Protection",
+      "source_excerpt": "All data — both in transit and at rest — must be encrypted in a Zero Trust architecture.",
+      "explanations": {
+        "beginner": "Encryption is like putting your message in a secret code that only the right person can read. Even if someone intercepts your message, all they see is gibberish. In Zero Trust, everything is encrypted — whether data is being sent somewhere or just stored on a computer.",
+        "intermediate": "Encryption transforms readable data into an unreadable format using cryptographic algorithms. Zero Trust mandates encryption for data in transit (TLS/HTTPS) and at rest (AES-256). This ensures that even if data is intercepted or storage is compromised, the information remains protected and useless to unauthorized parties.",
+        "expert": "Zero Trust encryption encompasses TLS 1.3 for in-transit protection, AES-256-GCM for at-rest encryption, and increasingly, homomorphic or confidential computing for data-in-use protection. Key management is centralized via HSMs or cloud KMS (AWS KMS, Azure Key Vault). End-to-end encryption (E2EE) is applied where possible. Certificate management (PKI, mTLS) enables mutual authentication between services. Encryption is enforced at the application layer, independent of network-level protections."
+      },
+      "quiz_questions": [
+        {
+          "question": "In Zero Trust, when should data be encrypted?",
+          "choices": [
+            "Only when being sent over the internet",
+            "Only when stored on a server",
+            "Both in transit and at rest — always",
+            "Only for sensitive data"
+          ],
+          "correct_index": 2,
+          "explanation": "Zero Trust requires encryption for ALL data, both in transit (being sent) and at rest (being stored), to ensure protection even if data is intercepted or storage is compromised."
+        },
+        {
+          "question": "What does encryption do to data?",
+          "choices": [
+            "Deletes it permanently",
+            "Makes it faster to transmit",
+            "Transforms it into an unreadable format that only authorized parties can decode",
+            "Compresses it to save storage"
+          ],
+          "correct_index": 2,
+          "explanation": "Encryption transforms readable data into an unreadable format using cryptographic algorithms, and only those with the correct decryption key can read it."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {"source": "zero-trust", "target": "least-privilege", "relation_type": "part-of", "label": "Core principle of Zero Trust"},
+    {"source": "zero-trust", "target": "microsegmentation", "relation_type": "part-of", "label": "Key implementation strategy"},
+    {"source": "zero-trust", "target": "mfa", "relation_type": "part-of", "label": "Authentication cornerstone"},
+    {"source": "zero-trust", "target": "continuous-monitoring", "relation_type": "part-of", "label": "Operational requirement"},
+    {"source": "zero-trust", "target": "encryption", "relation_type": "part-of", "label": "Data protection requirement"},
+    {"source": "mfa", "target": "identity-verification", "relation_type": "prerequisite", "label": "MFA enables identity verification"},
+    {"source": "identity-verification", "target": "continuous-monitoring", "relation_type": "related", "label": "Monitoring supports identity verification"},
+    {"source": "network-perimeter", "target": "zero-trust", "relation_type": "prerequisite", "label": "Perimeter limitations drove Zero Trust"},
+    {"source": "microsegmentation", "target": "least-privilege", "relation_type": "related", "label": "Both limit access scope"},
+    {"source": "encryption", "target": "identity-verification", "relation_type": "related", "label": "Encryption protects identity data"},
+    {"source": "continuous-monitoring", "target": "least-privilege", "relation_type": "related", "label": "Monitoring enforces access policies"},
+    {"source": "network-perimeter", "target": "microsegmentation", "relation_type": "related", "label": "Microsegmentation replaces perimeter model"}
+  ]
+}

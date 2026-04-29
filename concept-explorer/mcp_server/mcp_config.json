@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "concept-explorer": {
+      "command": "python",
+      "args": ["-m", "mcp_server.server"],
+      "cwd": "/path/to/concept-explorer",
+      "env": {
+        "MISTRAL_API_KEY": "your_key_here"
+      }
+    }
+  }
+}
